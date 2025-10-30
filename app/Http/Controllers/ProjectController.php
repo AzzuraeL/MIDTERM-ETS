@@ -40,7 +40,7 @@ class ProjectController extends Controller
 
     public function edit(Project $project)
     {
-        // Check if the project belongs to the authenticated user
+        
         if ($project->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -50,7 +50,7 @@ class ProjectController extends Controller
 
     public function update(Request $request, Project $project)
     {
-        // Check if the project belongs to the authenticated user
+        
         if ($project->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -69,7 +69,7 @@ class ProjectController extends Controller
 
     public function destroy(Project $project)
     {
-        // Check if the project belongs to the authenticated user
+        
         if ($project->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
