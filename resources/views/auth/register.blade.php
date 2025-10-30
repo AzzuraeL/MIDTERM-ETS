@@ -13,7 +13,7 @@
         }
     </script>
     <script>
-        // Initialize dark mode from localStorage
+        
         if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         }
@@ -101,7 +101,7 @@
             }
         }
         
-        // Initialize button text on page load
+        
         document.addEventListener('DOMContentLoaded', function() {
             const html = document.documentElement;
             const isDark = html.classList.contains('dark');
