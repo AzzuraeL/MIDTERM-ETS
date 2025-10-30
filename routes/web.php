@@ -13,20 +13,18 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-// Authentication Routes
+
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Protected Routes
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
-    // Project Routes
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
     Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
     Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
@@ -34,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
     Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
 
-    // Task Routes
+    
     Route::get('/projects/{project}/tasks', [TaskController::class, 'index'])->name('tasks.index');
     Route::get('/projects/{project}/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
     Route::post('/projects/{project}/tasks', [TaskController::class, 'store'])->name('tasks.store');
@@ -43,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
     Route::patch('/tasks/{task}/toggle-status', [TaskController::class, 'toggleStatus'])->name('tasks.toggleStatus');
 
-    // Checklist Item Routes
+    
     Route::post('/tasks/{task}/checklist-items', [ChecklistItemController::class, 'store'])->name('checklist-items.store');
     Route::patch('/checklist-items/{checklistItem}/toggle', [ChecklistItemController::class, 'toggle'])->name('checklist-items.toggle');
     Route::delete('/checklist-items/{checklistItem}', [ChecklistItemController::class, 'destroy'])->name('checklist-items.destroy');
