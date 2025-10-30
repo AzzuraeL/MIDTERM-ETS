@@ -3,7 +3,7 @@
 @section('title', 'Projects - ' . config('app.name', 'Laravel'))
 
 @section('content')
-            <!-- Header -->
+            
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-3xl font-bold text-gray-900 dark:text-white">My Projects</h1>
                 <a href="{{ route('projects.create') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">
@@ -11,7 +11,7 @@
                 </a>
             </div>
 
-            <!-- Projects Grid -->
+            
             @if($projects->count() > 0)
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @foreach($projects as $project)
