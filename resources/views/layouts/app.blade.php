@@ -15,14 +15,13 @@
         }
     </script>
     <script>
-        // Initialize dark mode from localStorage
+        
         if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         }
     </script>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen transition-colors">
-    <!-- Navigation -->
     <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -54,7 +53,6 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div class="px-4 py-6 sm:px-0">
             @yield('content')
@@ -79,7 +77,6 @@
             }
         }
         
-        // Initialize button text on page load
         document.addEventListener('DOMContentLoaded', function() {
             const html = document.documentElement;
             const isDark = html.classList.contains('dark');
