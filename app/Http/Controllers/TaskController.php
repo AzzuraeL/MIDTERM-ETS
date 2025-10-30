@@ -16,7 +16,7 @@ class TaskController extends Controller
 
     public function index(Project $project)
     {
-        // Check if the project belongs to the authenticated user
+        
         if ($project->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -27,7 +27,7 @@ class TaskController extends Controller
 
     public function create(Project $project)
     {
-        // Check if the project belongs to the authenticated user
+        
         if ($project->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -37,7 +37,7 @@ class TaskController extends Controller
 
     public function store(Request $request, Project $project)
     {
-        // Check if the project belongs to the authenticated user
+        
         if ($project->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -59,7 +59,7 @@ class TaskController extends Controller
 
     public function edit(Task $task)
     {
-        // Check if the task belongs to the authenticated user
+        
         if ($task->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -69,7 +69,7 @@ class TaskController extends Controller
 
     public function update(Request $request, Task $task)
     {
-        // Check if the task belongs to the authenticated user
+        
         if ($task->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -89,7 +89,7 @@ class TaskController extends Controller
 
     public function destroy(Task $task)
     {
-        // Check if the task belongs to the authenticated user
+        
         if ($task->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -102,16 +102,16 @@ class TaskController extends Controller
 
     public function toggleStatus(Task $task)
     {
-        // Check if the task belongs to the authenticated user
+        
         if ($task->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
 
-        // Toggle between completed and pending
+        
         $newStatus = $task->status === 'completed' ? 'pending' : 'completed';
         $task->update(['status' => $newStatus]);
 
-        // Return JSON for AJAX requests
+        
         if (request()->wantsJson()) {
             return response()->json([
                 'success' => true,
