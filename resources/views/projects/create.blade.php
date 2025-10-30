@@ -3,18 +3,18 @@
 @section('title', 'Create Project - ' . config('app.name', 'Laravel'))
 
 @section('content')
-            <!-- Header -->
+            
             <div class="mb-6">
                 <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Create New Project</h1>
                 <p class="mt-2 text-gray-600 dark:text-gray-400">Start a new project to organize your tasks</p>
             </div>
 
-            <!-- Form -->
+            
             <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
                 <form method="POST" action="{{ route('projects.store') }}">
                     @csrf
                     
-                    <!-- Title -->
+                    
                     <div class="mb-6">
                         <label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Project Title <span class="text-red-500">*</span>
@@ -31,7 +31,7 @@
                         @error('title')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
-                    </div>                    <!-- Description -->
+                    </div>                    
                     <div class="mb-6">
                         <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Description
@@ -48,7 +48,7 @@
                         @enderror
                     </div>
 
-                    <!-- Due Date -->
+                    
                     <div class="mb-6">
                         <label for="due_date" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Due Date
@@ -65,7 +65,7 @@
                         @enderror
                     </div>
 
-                    <!-- Buttons -->
+                    
                     <div class="flex justify-end space-x-4">
                         <a href="{{ route('projects.index') }}" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                             Cancel
