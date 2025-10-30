@@ -16,7 +16,6 @@ class ChecklistItemController extends Controller
 
     public function store(Request $request, Task $task)
     {
-        // Check if the task belongs to the authenticated user
         if ($task->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -30,7 +29,6 @@ class ChecklistItemController extends Controller
         return redirect()->route('tasks.edit', $task)->with('success', 'Checklist item added!');
     }    public function toggle(ChecklistItem $checklistItem)
     {
-        // Check if the task belongs to the authenticated user
         if ($checklistItem->task->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -39,7 +37,7 @@ class ChecklistItemController extends Controller
             'completed' => !$checklistItem->completed,
         ]);
 
-        // Return JSON for AJAX requests
+        
         if (request()->wantsJson()) {
             return response()->json([
                 'success' => true,
@@ -53,7 +51,6 @@ class ChecklistItemController extends Controller
 
     public function destroy(ChecklistItem $checklistItem)
     {
-        // Check if the task belongs to the authenticated user
         if ($checklistItem->task->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
